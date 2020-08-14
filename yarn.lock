@@ -8560,6 +8560,11 @@ react-error-overlay@^6.0.7:
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-6.0.7.tgz#1dcfb459ab671d53f660a991513cb2f0a0553108"
   integrity sha512-TAv1KJFh3RhqxNvhzxj6LeT5NWklP6rDr2a0jaTfsZ5wSZWHOGeqQyejUp3xxLfPt2UpyJEcVQB/zyPcmonNFA==
 
+react-game-engine@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/react-game-engine/-/react-game-engine-1.0.0.tgz#944cdbe860502ffff4958c7ec8b81986565791cd"
+  integrity sha512-we1V6z3lsvcTD9n/4/livF+3r4fDAWvi0uiRCboA74welANxzhD6J/F1V2wGAqf/mCQTBgJR2c/clMBKVS4SVg==
+
 react-is@^16.12.0, react-is@^16.8.1, react-is@^16.8.4:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
@@ -8885,6 +8890,13 @@ request@^2.87.0, request@^2.88.0:
     tough-cookie "~2.5.0"
     tunnel-agent "^0.6.0"
     uuid "^3.3.2"
+
+requestanimationframe-timer@^3.0.3:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/requestanimationframe-timer/-/requestanimationframe-timer-3.0.3.tgz#a3dcb7a70df6752858cab25f37b636a6cfff9133"
+  integrity sha512-2gCvk7jCQTq0nyukEdLI06X5zogy0DSj0j+mwVz12q29DnelCefxByiUsRovpjdc06cvSLTV6vyhw7g8b0AZ1A==
+  dependencies:
+    raf "^3.4.1"
 
 require-directory@^2.1.1:
   version "2.1.1"

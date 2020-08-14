@@ -36,3 +36,23 @@
     transform: rotate(360deg);
   }
 }
+
+.snake.game.container{
+  background-color: black;
+  width: 1000px;
+  height: 1000px;
+}
+
+.test.segment{
+  background-color: greenyellow;
+  height: 10px;
+  width: 10px;
+  position: relative;  
+}
+
+.apple{
+  background-color: red;
+  height: 10px;
+  width: 10px;
+  position: relative;
+}
