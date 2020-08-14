@@ -2,32 +2,37 @@ import React, {Component} from 'react'
 import { setInterval, setTimeout, clearInterval, clearTimeout } from 'requestanimationframe-timer';
 import {player1keyMap as keys} from '../constants/player1keyMap'
 import vectorMap from '../constants/vectorMap'
-import Apple from '../components/Apple'
-import SnakeBody from './SnakeBody'
+import Row from './Row'
+import compareCoords from '../constants/compareCoords'
 
 let intervalID;
+const TABLE_SIZE = 30;
 
 class SnakeGame extends Component
 {
   state = {
-    moves: [[1,1]],
+    moves: [[10,0]],
     vector: [1,0],
     apple: [randomCoordinate(), randomCoordinate()]
   }
   
   componentDidMount()
   {
-    intervalID = setInterval(() => this.nextMove(), 200)
+    intervalID = setInterval(() => this.nextMove(), 100)
     document.addEventListener("keydown",e => this.handleKeyDown(e.keyCode))
     
   }
   
   handleKeyDown = (keyCode) =>
-  {    
-    const key = keys[`${keyCode}`]
-    if(key === 'esc')
-      return clearInterval(intervalID)
-    this.setState({vector: vectorMap(key)})
+  {  
+    if(keys[`${keyCode}`])  
+    {
+      const key = keys[`${keyCode}`]
+      if(key === 'esc')
+        return clearInterval(intervalID)
+      this.setState({vector: vectorMap(key)})
+    }
+      
   }
 
   // moveSnake = () => {
@@ -47,24 +52,24 @@ class SnakeGame extends Component
 
   //front of array = head of snake
   nextMove = () => {
-    const {moves,vector,apple} = this.state.moves
-    const newMoves = moves.map(move => [move[0],move[1]])
-    newMoves.unshift([moves[0][0] + vector[0],moves[1][0] + vector[1]])
+    const {moves,vector,apple} = this.state
+    const newMoves = (moves.map(move => [move[0],move[1]]))
+
+    newMoves.unshift([moves[0][0] + vector[0],moves[0][1] + vector[1]])
     
     
-    if(equalCoordinates(newMoves[0],apple))
+    if(compareCoords(newMoves[0],apple))
       this.eatApple(newMoves)
     else
       this.noApple(newMoves)
-
-
   }
 
   eatApple = (newMoves) =>
   {
     const moves = newMoves.map(move => [move[0],move[1]])
-    this.setState({moves})
     this.newApple()
+    this.setState({moves})
+    console.log(`Ate apple`,`move: ${moves[0]}`, `apple: ${this.state.apple}`)
   }
   noApple = (newMoves) =>
   {
@@ -85,20 +90,29 @@ class SnakeGame extends Component
       
       moves.forEach(move => {
         taken = (move[0] === apple[0] && move[1] === apple[1])
-      })
+      })      
     }
     this.setState({apple})
   }
 
+  generateRows = (n) =>
+  {
+    const rows = [];
+    for(let i = 0; i < n ; i++)
+    {
+      rows.push(<Row rows={n} rowId={i} moves={this.state.moves} apple={this.state.apple}/> )
+    }
+    return rows;
+  }
+
   render()
   {
-    const {moves} = this.state.moves
+    const {moves} = this.state
     const [appleX,appleY] = this.state.apple
-    return(
-      <div  className="snake game container">
-        <SnakeBody moves={moves} />
-        <Apple x={appleX} y={appleY} />
-      </div>
+    return(      
+        <table className="snake game" border="0" cellspacing="0" cellpadding="0">
+          {this.generateRows(TABLE_SIZE)}
+        </table>
     )
   }
 
@@ -106,13 +120,6 @@ class SnakeGame extends Component
 
 const randomCoordinate = () =>
 {
-  return Math.floor(Math.random()*101)
+  return Math.floor(Math.random()*(TABLE_SIZE))
 }
-
-const equalCoordinates = (array1,array2) =>
-{
-  return array1[0] === array2[0] && array1[1] === array2[1]
-}
-
-
 export default SnakeGame;

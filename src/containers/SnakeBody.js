@@ -1,12 +1,12 @@
 import Segment from '../components/Segment'
-import {Fragment,React} from 'react'
+import React, {Fragment} from 'react'
 
 const SnakeBody = props =>
 {
   return(
-    <>
-      {props.moves.forEach(move => <Segment move={move} />)}
-    </>
+    <div>{props.moves.map(move => <Segment x={move[0]} y={move[1]} />)}</div>
+      
+    
   )
 }
 

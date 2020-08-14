@@ -37,22 +37,23 @@
   }
 }
 
-.snake.game.container{
-  background-color: black;
-  width: 1000px;
-  height: 1000px;
+td.snake.game{
+  border: 1;
+  width: 100%;
+  border-collapse: collapse;
 }
-
-.test.segment{
+.snake.segment{
   background-color: greenyellow;
-  height: 10px;
-  width: 10px;
-  position: relative;  
+  height:100%;
 }
 
 .apple{
   background-color: red;
-  height: 10px;
-  width: 10px;
-  position: relative;
+  height: 100%;
+}
+
+td.cell{
+  background-color: black;
+  width: 20px;
+  height: 20px;
 }
