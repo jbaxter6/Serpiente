@@ -61,7 +61,7 @@ class SnakeGame extends Component
     const moves = newMoves.map(move => [move[0],move[1]])
     this.newApple()
     this.setState({moves})
-    console.log(`Ate apple`,`move: ${moves[0]}`, `apple: ${this.state.apple}`)
+    //console.log(`Ate apple`,`move: ${moves[0]}`, `apple: ${this.state.apple}`)
   }
   noApple = (newMoves) =>
   {
@@ -90,14 +90,13 @@ class SnakeGame extends Component
   generateRows = (n) =>
   {
     const moveMap = movesAtRow(this.state.moves,this.state.vector)
-    console.log(moveMap)
+    const {apple} = this.state
     const rows = [];
     for(let i = 0; i < n ; i++)
     {
       rows.push(<Row rows={n} rowId={i} 
-                     moves={this.state.moves} 
-                     apple={this.state.apple}
-                     vector={this.state.vector}
+                     moves={moveMap[i] ? moveMap[i] : null} 
+                     apple={apple[1] === i ? apple : null}
                      /> )
     }
     return rows;

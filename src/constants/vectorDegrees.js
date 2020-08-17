@@ -8,7 +8,7 @@ const vectorDegrees = (vec) =>
       return 180
     if(y === -1)
       return 0
-  }else
+  }else //y === 0
   {
     if(x === 1)
       return 90

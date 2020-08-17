@@ -7,7 +7,8 @@ import compareCoords from '../constants/compareCoords'
 //          -explains segment type (head,tail,straight segment, elbow segment)
 //          -calculates the degrees that an elbow should be turned
 //          -stores the number of moves --- they are not stored linearly, so size isnt easily computed outside
-//ex: movesAtRow(moves).rows[20][1] is a 'move' coordinate pair where the snake is on row 20 at this coordinate
+//ex: movesAtRow(moves).rows[y][x] is a 'move' coordinate pair
+//        is on row y and column x
 //---------------------------------------------------------------------------
 const movesAtRow = (moves,currentVector) =>
 {  
@@ -17,13 +18,13 @@ const movesAtRow = (moves,currentVector) =>
   {
     const [x,y] = moves[i]
     !rows[y] && (rows[y] = [])
-    !rows[y][i] && (rows[y][i] = {})
+    !rows[y][x] && (rows[y][x] = {})
 
-    rows[y][i].moves = moves[i]
+    rows[y][x].move = moves[i]
     if(i === 0)
     {
-      rows[y][i].snakePart = "head";
-      rows[y][i].angle = vectorDegrees(currentVector)
+      rows[y][x].snakePart = "head";
+      rows[y][x].angle = vectorDegrees(currentVector)
     }
 
     else //is a segment or tail
@@ -43,27 +44,25 @@ const movesAtRow = (moves,currentVector) =>
         //it should be a straight segment
         if(compareCoords(inVec,outVec))
         {
-          rows[y][i].snakePart = "straight segment"
-          rows[y][i].angle = vectorDegrees(outVec)
-          debugger;
+          rows[y][x].snakePart = "straight_segment"
+          rows[y][x].angle = vectorDegrees(outVec)
         }
-        else
+        else//is an elbow
         {
-          console.log(`in: ${inVec} out: ${outVec}`)
-          rows[y][i].snakePart = "elbow segment"
+          rows[y][x].snakePart = "elbow_segment"
           //get appropriate degrees( used to turn elbow)
-          rows[y][i].angle = elbowDeg(inVec,outVec)
+          rows[y][x].angle = elbowDeg(inVec,outVec)
         }
       }
       else//is tail
       {
-        rows[y][i].snakePart = "tail"
-        rows[y][i].angle = vectorDegrees(vecDiff2d(moves[i],moves[i-1]))
+        rows[y][x].snakePart = "tail"
+        rows[y][x].angle = vectorDegrees(vecDiff2d(moves[i-1],moves[i]))
       }
 
     }
-  }
-  return {rows, size: moves.length}
+  }  
+  return rows
 }
 
 export default movesAtRow;

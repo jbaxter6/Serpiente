@@ -3,19 +3,19 @@ import Cell from './Cell'
 
 const Row = (props) =>
 {
-  const {rows,rowId} = props
-
-  
-  return( <tr>{generateCells(rowId,rows,props)}</tr>  )
+  return( <tr>{generateCells(props)}</tr>  )//
 } 
 
-const generateCells = (row,rows,props) =>
+const generateCells = ({rowId,rows,apple,moves}) =>
 {
   const cells = [];
 
   for(let i = 0; i < rows; i++)
   {
-    cells.push( <Cell key={`${i}-${row}`} position={`${i} ${row}`} moves={props.moves} apple={props.apple}/> )
+    cells.push( <Cell key={`${i}-${rowId}`} 
+                      position={`${i} ${rowId}`} 
+                      move={moves ? moves[i] : null} 
+                      apple={ apple ? (apple[0] === i ? apple : null) : null}/> )
   }
 
   return cells;
