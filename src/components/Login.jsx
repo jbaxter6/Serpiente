@@ -3,8 +3,6 @@ import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui
 import logo from '../images/snake_head.png'
 import hitSound from '../constants/hitSound'
 
-// ______________________________________
-
 export default class Login extends Component {
     
     handleChange = (e) => {
@@ -18,6 +16,20 @@ export default class Login extends Component {
         e.preventDefault()
         
         // post fetch request
+        fetch("http://localhost:3000/api/v1/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                username: this.state.username,
+                password: this.state.password
+            })
+        })
+        .then(resp => resp.json())
+        .then(user => {
+            localStorage.token = user.token
+        })
     }
 
     render() {
