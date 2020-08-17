@@ -4,6 +4,9 @@ import {player1keyMap as keys} from '../constants/player1keyMap'
 import vectorMap from '../constants/vectorMap'
 import Row from './Row'
 import compareCoords from '../constants/compareCoords'
+import hitSound from '../constants/hitSound'
+
+
 
 let intervalID;
 const TABLE_SIZE = 30;
@@ -30,25 +33,12 @@ class SnakeGame extends Component
       const key = keys[`${keyCode}`]
       if(key === 'esc')
         return clearInterval(intervalID)
+      else
+        hitSound.play()
       this.setState({vector: vectorMap(key)})
     }
       
   }
-
-  // moveSnake = () => {
-  //   let moves = [];
-  //   const {vector} = this.state
-    
-  //   for (let i = 0; i < this.state.moves.length; i++)
-  //   {
-  //     moves[i] = [this.state.moves[i][0] + vector[0],this.state.moves[i][1] + vector[1]]
-  //   }
-    
-  //   this.setState({moves})
-
-
-    
-  // }
 
   //front of array = head of snake
   nextMove = () => {
@@ -100,7 +90,11 @@ class SnakeGame extends Component
     const rows = [];
     for(let i = 0; i < n ; i++)
     {
-      rows.push(<Row rows={n} rowId={i} moves={this.state.moves} apple={this.state.apple}/> )
+      rows.push(<Row rows={n} rowId={i} 
+                     moves={this.state.moves} 
+                     apple={this.state.apple}
+                     vector={this.state.vector}
+                     /> )
     }
     return rows;
   }
@@ -121,5 +115,21 @@ class SnakeGame extends Component
 const randomCoordinate = () =>
 {
   return Math.floor(Math.random()*(TABLE_SIZE))
+}
+
+//this function maps the current moves to a nested array and a size of the original array
+//ex: movesAtRow().rows[20][1] is a 'move' coordinate pair where the snake is on row 20 at this coordinate
+const movesAtRow = (moves) =>
+{
+  const rows = []
+  const movesMap = {}
+  for(let i = 0; i < moves.length; i++)
+  {
+    const [x,y] = moves[i]
+    !rows[y] && (rows[y] = [])
+
+    rows[y][i] = moves[i]
+  }
+  return {rows, size: moves.length}
 }
 export default SnakeGame;

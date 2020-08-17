@@ -18,6 +18,7 @@ const Cell = (props) =>
     <td className={`${props.position} cell`} >
       {active_snake && <Segment />}
       {active_apple && <Apple />}
+      {!active_apple && !active_snake && <div className="placeholder"></div>}
     </td>
   )  
 }
