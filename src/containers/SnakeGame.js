@@ -44,7 +44,7 @@ class SnakeGame extends Component
   nextMove = () => {
     const {moves,vector,apple} = this.state
     const newMoves = (moves.map(move => [move[0],move[1]]))
-
+    //add vector to first move to get new move
     newMoves.unshift([moves[0][0] + vector[0],moves[0][1] + vector[1]])
     
     
