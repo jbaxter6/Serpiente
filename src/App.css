@@ -68,6 +68,7 @@ td.cell{
   width: 40px;
   height: 40px;
   display: block;
+  transform: rotate(180deg)
 }
 
 div.placeholder 

@@ -6,10 +6,13 @@ import Row from './Row'
 import compareCoords from '../constants/compareCoords'
 import hitSound from '../constants/hitSound'
 
+import movesAtRow from '../constants/movesAtRow';
+
 
 
 let intervalID;
-const TABLE_SIZE = 30;
+const TABLE_SIZE = 20;
+const SPEED = 200;
 
 class SnakeGame extends Component
 {
@@ -21,7 +24,7 @@ class SnakeGame extends Component
   
   componentDidMount()
   {
-    intervalID = setInterval(() => this.nextMove(), 100)
+    intervalID = setInterval(() => this.nextMove(), SPEED)
     document.addEventListener("keydown",e => this.handleKeyDown(e.keyCode))
     
   }
@@ -45,8 +48,7 @@ class SnakeGame extends Component
     const {moves,vector,apple} = this.state
     const newMoves = (moves.map(move => [move[0],move[1]]))
     //add vector to first move to get new move
-    newMoves.unshift([moves[0][0] + vector[0],moves[0][1] + vector[1]])
-    
+    newMoves.unshift([moves[0][0] + vector[0],moves[0][1] + vector[1]])    
     
     if(compareCoords(newMoves[0],apple))
       this.eatApple(newMoves)
@@ -87,6 +89,8 @@ class SnakeGame extends Component
 
   generateRows = (n) =>
   {
+    const moveMap = movesAtRow(this.state.moves,this.state.vector)
+    console.log(moveMap)
     const rows = [];
     for(let i = 0; i < n ; i++)
     {
@@ -117,19 +121,7 @@ const randomCoordinate = () =>
   return Math.floor(Math.random()*(TABLE_SIZE))
 }
 
-//this function maps the current moves to a nested array and a size of the original array
-//ex: movesAtRow().rows[20][1] is a 'move' coordinate pair where the snake is on row 20 at this coordinate
-const movesAtRow = (moves) =>
-{
-  const rows = []
-  const movesMap = {}
-  for(let i = 0; i < moves.length; i++)
-  {
-    const [x,y] = moves[i]
-    !rows[y] && (rows[y] = [])
 
-    rows[y][i] = moves[i]
-  }
-  return {rows, size: moves.length}
-}
+
+
 export default SnakeGame;
