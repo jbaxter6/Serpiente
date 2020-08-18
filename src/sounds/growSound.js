@@ -6,6 +6,7 @@ import grow4 from './grow_04.mp3'
 
 const sounds = [grow1,grow2,grow3,grow4]
 const sound = sounds[Math.floor(Math.random()*4)]
+
 const growSound = new UIfx(
   sound,
   {

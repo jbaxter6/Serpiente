@@ -10,7 +10,11 @@ const App = () => {
     <div className="App">
       {/* {<NavBar />} */}
       {/* {<Login />} */}
-      <SnakeGame />
+      <div id="game-container" className="ui container game">
+        <SnakeGame />
+        <div id="game-menu"></div>
+      </div>
+      
     </div>
   );
 }

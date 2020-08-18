@@ -44,8 +44,7 @@ table {
   border-collapse: collapse;
 }
 
-td.snake.game{
-}
+
 .snake.segment{
   background-color: greenyellow;
   width: 40px;
@@ -59,7 +58,7 @@ td.snake.game{
 }
 
 td.cell{
-  background-color: black;
+  /* background-color: black; */
   width: 40px;
   height: 40px;
 }
@@ -78,4 +77,21 @@ div.placeholder
 
 .ui.menu {
   height: 80px;
+}
+
+#game-container
+{
+  height: 1000px;
+  width: 800px;
+  background-color: black;
+  background-image: url('./images/background.png');
+}
+#game-menu
+{
+  height: 200px;
+  width: 800px;
+  border-style: solid;
+  border-color: skyblue;
+  background-color: rgb(11, 0, 26);
+  border-width: 10px;
 }
