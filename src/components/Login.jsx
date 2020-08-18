@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
 import logo from '../images/snake_head.png'
-import hitSound from '../constants/hitSound'
+import hitSound from '../sounds/hitSound'
 
 export default class Login extends Component {
     

@@ -1,5 +1,5 @@
 import UIfx from 'uifx'
-import click from '../sounds/button16.wav'
+import click from './button16.wav'
 
 const hitSound = new UIfx(
   click,

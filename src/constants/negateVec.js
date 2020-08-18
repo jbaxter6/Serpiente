@@ -1,9 +1,9 @@
 //---------------------------------------------------------
 // Purpose: negates an array
 //---------------------------------------------------------
-const negate = (array) =>
+const negateVec = (array) =>
 {
-  return array.map(elm => !elm)
+  return array.map(elm => elm*(-1))
 }
 
-export {negate}
+export default negateVec;

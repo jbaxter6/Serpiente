@@ -4,11 +4,15 @@ import {player1keyMap as keys} from '../constants/player1keyMap'
 import vectorMap from '../constants/vectorMap'
 import Row from './Row'
 import compareCoords from '../constants/compareCoords'
-import hitSound from '../constants/hitSound'
+import negateVec from '../constants/negateVec'
+
+import hitSound from '../sounds/hitSound'
+import growSound from '../sounds/growSound'
+import eatSound from '../sounds/eatSound'
+import startSound from '../sounds/startSound'
+import deathSound from '../sounds/deathSound'
 
 import movesAtRow from '../constants/movesAtRow';
-
-
 
 let intervalID;
 const TABLE_SIZE = 20;
@@ -19,26 +23,57 @@ class SnakeGame extends Component
   state = {
     moves: [[10,0]],
     vector: [1,0],
-    apple: [randomCoordinate(), randomCoordinate()]
+    apple: [randomCoordinate(), randomCoordinate()],
+    paused: false,
+    alive: true
   }
   
   componentDidMount()
   {
     intervalID = setInterval(() => this.nextMove(), SPEED)
     document.addEventListener("keydown",e => this.handleKeyDown(e.keyCode))
-    
+    startSound.play();
+  }
+
+  //game ended
+  endGame = () =>
+  {
+    this.setState({alive: false})
+    deathSound.play()
+    clearInterval(intervalID)
+    intervalID = setInterval(() => this.killSnake(),SPEED)
+  }
+
+  killSnake = () =>
+  {
+    const {moves} = this.state
+    if(moves && moves[0])
+      this.setState({moves: moves.slice(1)})
   }
   
   handleKeyDown = (keyCode) =>
   {  
-    if(keys[`${keyCode}`])  
+    if(keys[`${keyCode}`])
     {
       const key = keys[`${keyCode}`]
       if(key === 'esc')
-        return clearInterval(intervalID)
+      {
+        const {paused} = this.state
+
+        if(paused)
+          intervalID = setInterval(() => this.nextMove(), SPEED)
+        else
+          clearInterval(intervalID)
+        this.setState({paused: !paused})
+      }
       else
+      {
         hitSound.play()
-      this.setState({vector: vectorMap(key)})
+        
+        const vector = vectorMap(key)
+        if(!compareCoords(vector,negateVec(this.state.vector)))
+          this.setState({vector})
+      }
     }
       
   }
@@ -47,9 +82,25 @@ class SnakeGame extends Component
   nextMove = () => {
     const {moves,vector,apple} = this.state
     const newMoves = (moves.map(move => [move[0],move[1]]))
-    //add vector to first move to get new move
-    newMoves.unshift([moves[0][0] + vector[0],moves[0][1] + vector[1]])    
     
+    //add vector to first move to get new move
+    const newMove = ([moves[0][0] + vector[0],moves[0][1] + vector[1]])
+        
+    newMoves.unshift(newMove)    
+    
+    //is next move hitting the snake?
+    let dead = false;
+    for(let i = 1; i < newMoves.length ; i++)
+    { 
+      if (compareCoords(newMoves[0],newMoves[i]))
+        dead = true;
+    }
+    //is snake out of bounds? bad snake
+    const [x,y] = newMove
+    console.log(x," ",y)
+    if(x < 0 || y < 0 || x >= TABLE_SIZE || y >= TABLE_SIZE || dead)
+      return this.endGame()
+
     if(compareCoords(newMoves[0],apple))
       this.eatApple(newMoves)
     else
@@ -61,7 +112,9 @@ class SnakeGame extends Component
     const moves = newMoves.map(move => [move[0],move[1]])
     this.newApple()
     this.setState({moves})
-    //console.log(`Ate apple`,`move: ${moves[0]}`, `apple: ${this.state.apple}`)
+    if(Math.floor(Math.random()*3)+1 === 1)
+      growSound.play()
+    eatSound.play()
   }
   noApple = (newMoves) =>
   {
@@ -89,7 +142,8 @@ class SnakeGame extends Component
 
   generateRows = (n) =>
   {
-    const moveMap = movesAtRow(this.state.moves,this.state.vector)
+    const {moves,vector,alive} = this.state
+    const moveMap = movesAtRow(moves,vector,alive)
     const {apple} = this.state
     const rows = [];
     for(let i = 0; i < n ; i++)

@@ -10,10 +10,10 @@ import compareCoords from '../constants/compareCoords'
 //ex: movesAtRow(moves).rows[y][x] is a 'move' coordinate pair
 //        is on row y and column x
 //---------------------------------------------------------------------------
-const movesAtRow = (moves,currentVector) =>
+const movesAtRow = (moves,currentVector,alive) =>
 {  
   const rows = []
-  const movesMap = {}
+
   for(let i = 0; i < moves.length; i++)
   {
     const [x,y] = moves[i]
@@ -23,8 +23,24 @@ const movesAtRow = (moves,currentVector) =>
     rows[y][x].move = moves[i]
     if(i === 0)
     {
-      rows[y][x].snakePart = "head";
-      rows[y][x].angle = vectorDegrees(currentVector)
+      if(alive)
+      {
+        rows[y][x].snakePart = "head";
+        rows[y][x].angle = vectorDegrees(currentVector)
+      }      
+      else//snake gets destroyed from front, dont show head again
+      {
+        if(moves[i+1])//not the last part
+        {
+          rows[y][x].snakePart = "straight_segment"
+          rows[y][x].angle = vectorDegrees(vecDiff2d(moves[i],moves[i+1]))
+        }
+        else//last part
+        {
+          rows[y][x].snakePart = 'tail'
+          rows[y][x].angle = vectorDegrees(currentVector)
+        }
+      }
     }
 
     else //is a segment or tail
