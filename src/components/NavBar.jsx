@@ -55,7 +55,7 @@ export default class NavBar extends Component {
                     className="logout-bttn"
                     name='LOGOUT'
                     active={activeItem === 'logout'}
-                    onClick={this.logout()}
+                    onClick={this.logout}
                 />
             </Menu>
         )
