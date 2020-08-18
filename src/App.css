@@ -1,5 +1,11 @@
+@font-face {
+  font-family: 'drip';
+  src: url('./fonts/plasdrip.ttf');
+}
+
 .App {
   text-align: center;
+  background-color: slategrey;
 }
 
 .App-logo {
@@ -38,7 +44,7 @@
 }
 
 table {
-  
+  /* filter: brightness(100%); */
   border-spacing: 0px;
   border: 1;
   border-collapse: collapse;
@@ -81,17 +87,33 @@ div.placeholder
 
 #game-container
 {
+  
   height: 1000px;
   width: 800px;
+}
+div#snake-game-box
+{
+  height: 800px;
+  width: 800px;
+  
   background-color: black;
   background-image: url('./images/background.png');
 }
-#game-menu
+.game.panel
 {
   height: 200px;
   width: 800px;
   border-style: solid;
-  border-color: skyblue;
+  border-color: rgb(66, 66, 66);
   background-color: rgb(11, 0, 26);
   border-width: 10px;
+  font-family: 'drip';
+}
+
+#pause-menu{
+  font-size: 80px;
+  color: rgb(115, 255, 0);
+  text-align: center;
+  vertical-align: middle;
+  line-height: 200px; 
 }

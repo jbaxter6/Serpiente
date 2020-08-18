@@ -16,7 +16,7 @@ import movesAtRow from '../constants/movesAtRow';
 
 let intervalID;
 const TABLE_SIZE = 20;
-const SPEED = 200;
+const SPEED = 140;
 
 class SnakeGame extends Component
 {
@@ -160,10 +160,12 @@ class SnakeGame extends Component
   {
     const {moves} = this.state
     const [appleX,appleY] = this.state.apple
-    return(      
+    return(
+      <div id="snake-game-box">
         <table className="snake game" border="0" cellspacing="0" cellpadding="0">
           {this.generateRows(TABLE_SIZE)}
         </table>
+      </div>
     )
   }
 
