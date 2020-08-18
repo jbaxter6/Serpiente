@@ -13,18 +13,18 @@ const App = () => {
       <BrowserRouter>
 
     <div className="App">
-      {/* {<NavBar />} */}
+      {/*  */}
       {/* {<Login />} */}
+      <NavBar /> 
       <SnakeGameContainer />      
-        <NavBar />
-        <Switch>
-          <Route path='/login' component={Login} />
-          <Route path='/signup' component={Signup} />
-        </Switch>
     </div>
 
       </BrowserRouter>
   );
 }
+        // <Switch>
+        //   <Route path='/login' component={Login} />
+        //   <Route path='/signup' component={Signup} />
+        // </Switch>
 
 export default App;
