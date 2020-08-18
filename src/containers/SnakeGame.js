@@ -71,7 +71,7 @@ class SnakeGame extends Component
         hitSound.play()
         
         const vector = vectorMap(key)
-        if(!compareCoords(vector,negateVec(this.state.vector)))
+        if(!compareCoords(vector,negateVec(this.state.vector)) || !this.state.moves[1])
           this.setState({vector})
       }
     }
