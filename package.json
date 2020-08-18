@@ -9,6 +9,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-game-engine": "^1.0.0",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
     "react-sound": "^1.2.0",
     "requestanimationframe-timer": "^3.0.3",

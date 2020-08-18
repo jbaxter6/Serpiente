@@ -1,4 +1,8 @@
 import React, {Component} from 'react'
+import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
+import logo from '../images/snake_head.png'
+import hitSound from '../sounds/hitSound'
+import {Link} from 'react-router-dom'
 
 export default class Login extends Component {
     
@@ -11,22 +15,22 @@ export default class Login extends Component {
         
     handleSignUp = (e) => {
         e.preventDefault()
-        
         // post fetch to users request
         fetch('http://localhost:3000/api/v1/users', {
             method: "POST",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "accepts": "application/json"
             }, 
             body: JSON.stringify({
                 username: this.state.username,
                 password: this.state.password
             })
+        })
             .then(resp => resp.json())
             .then(user => {
                 localStorage.token = user.token
             })
-        })
 
     }
 
@@ -57,12 +61,12 @@ export default class Login extends Component {
                     onChange={(e) => this.handleChange(e)}
                     />
                     <Button color='black' fluid size='large'>
-                    Login
+                    Sign-Up
                     </Button>
                 </Segment>
                 </Form>
                 <Message color="black">
-                    Already have an Account?  <a href='#'> Sign In</a>
+                    Already have an Account?  <Link to="/login">Sign-In</Link>
                 </Message>
                 </Grid.Column>
             </Grid>   

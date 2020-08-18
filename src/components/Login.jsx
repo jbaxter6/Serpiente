@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
 import logo from '../images/snake_head.png'
 import hitSound from '../sounds/hitSound'
+import {Link} from 'react-router-dom'
 
 export default class Login extends Component {
     
@@ -19,7 +20,8 @@ export default class Login extends Component {
         fetch("http://localhost:3000/api/v1/login", {
             method: "POST",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "accepts": "application/json"
             },
             body: JSON.stringify({
                 username: this.state.username,
@@ -28,6 +30,7 @@ export default class Login extends Component {
         })
         .then(resp => resp.json())
         .then(user => {
+            console.log(user)
             localStorage.token = user.token
         })
     }
@@ -64,7 +67,7 @@ export default class Login extends Component {
                 </Segment>
                 </Form>
                 <Message color="black">
-                    Don't have an Account?  <a href='#'> Sign Up</a>
+                    Don't have an Account?  <Link to="/signup"> Sign-Up </Link>
                 </Message>
                 </Grid.Column>
             </Grid>   

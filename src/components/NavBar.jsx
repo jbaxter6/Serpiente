@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Menu } from 'semantic-ui-react'
-// import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 export default class NavBar extends Component {
     
@@ -17,9 +17,13 @@ export default class NavBar extends Component {
             activeItem: name
         })
     }
+
+    logout = () => {
+        localStorage.clear()
+    }
     
     render() {
-        const { activeItem} = this.state
+        const { activeItem } = this.state
         return (
             <Menu inverted>
                 <Menu.Item header> SERPIENTE </Menu.Item>
@@ -34,15 +38,24 @@ export default class NavBar extends Component {
                     onClick={this.handleItemClick}
                 />
                 <Menu.Item
-                    name='SAVE GAME'
-                    active={activeItem === 'save'}
+                    as={Link}
+                    to="/login"
+                    name='LOGIN'
+                    active={activeItem === 'login'}
+                    onClick={this.handleItemClick}
+                />
+                <Menu.Item
+                    as={Link}
+                    to="/signup"
+                    name='SIGNUP'
+                    active={activeItem === 'signup'}
                     onClick={this.handleItemClick}
                 />
                 <Menu.Item
                     className="logout-bttn"
                     name='LOGOUT'
                     active={activeItem === 'logout'}
-                    onClick={this.handleItemClick}
+                    onClick={this.logout}
                 />
             </Menu>
         )
