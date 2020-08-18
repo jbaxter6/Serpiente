@@ -5,7 +5,6 @@
 
 .App {
   text-align: center;
-  background-color: slategrey;
 }
 
 .App-logo {
@@ -101,7 +100,7 @@ div#snake-game-box
 }
 .game.panel
 {
-  height: 200px;
+  height: 80px;
   width: 800px;
   border-style: solid;
   border-color: rgb(66, 66, 66);
@@ -111,9 +110,9 @@ div#snake-game-box
 }
 
 #pause-menu{
-  font-size: 80px;
+  font-size: 40px;
   color: rgb(115, 255, 0);
   text-align: center;
   vertical-align: middle;
-  line-height: 200px; 
+  line-height: 80px; 
 }
