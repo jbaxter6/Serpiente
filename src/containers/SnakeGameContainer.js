@@ -3,6 +3,10 @@ import SnakeGame from './SnakeGame'
 import PausePanel from '../components/PausePanel'
 import MenuPanel from '../components/MenuPanel'
 
+
+//----------------------------------------
+// Purpose: holds game, pause panel, menu panel
+//-----------------------------------------
 class SnakeGameContainer extends Component
 {
   state = {

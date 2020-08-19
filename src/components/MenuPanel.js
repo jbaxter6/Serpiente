@@ -1,6 +1,8 @@
 import React from 'react'
 
-
+//---------------------------------
+// Purpose: Shows score
+//-----------------------------------
 const MenuPanel = (props) =>
 {
   const score = Math.round(props.score)

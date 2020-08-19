@@ -27,7 +27,7 @@ const movesAtRow = (moves,currentVector,alive) =>
       {
         rows[y][x].snakePart = "head";
         rows[y][x].angle = vectorDegrees(currentVector)
-      }      
+      }
       else//snake gets destroyed from front, dont show head again
       {
         if(moves[i+1])//not the last part
@@ -49,13 +49,13 @@ const movesAtRow = (moves,currentVector,alive) =>
       {
         //___side is a segment next to current towards head or tail
         const headSide = moves[i-1]
-        const current = moves [i]
+        const current = moves[i]
         const tailSide = moves[i+1]
 
         //what angle is the snake going into segment and out?
         const inVec = vecDiff2d(current,tailSide)
         const outVec = vecDiff2d(headSide,current)
-        
+
         //if direction coming in is equal to direction coming out, then
         //it should be a straight segment
         if(compareCoords(inVec,outVec))
