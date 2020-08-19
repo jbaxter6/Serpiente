@@ -10,25 +10,17 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom'
 
 const App = () => {  
   return (
-      <BrowserRouter>
-
-    <div className="App">
-      {/*  */}
-      {/* {<Login />} */}
-      <NavBar /> 
-      <SnakeGameContainer />      
-    </div>
-
-      </BrowserRouter>
+    <BrowserRouter>
+      <div className="App">      
+          <Switch>
+            <Route path='/login' component={Login} />
+            <Route path='/signup' component={Signup} />
+          </Switch>
+        <NavBar /> 
+        <SnakeGameContainer />      
+      </div>
+    </BrowserRouter>
   );
 }
-        // <Switch>
-        //   <Route path='/login' component={Login} />
-        //   <Route path='/signup' component={Signup} />
-        // </Switch>
 
 export default App;
-
-
-
-

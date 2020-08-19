@@ -19,7 +19,6 @@ import addVectors from '../constants/addVectors'
 let intervalID;
 const TABLE_SIZE = 20;
 const SPEED = 140;
-
 class SnakeGame extends Component
 {
   state = {
@@ -40,6 +39,7 @@ class SnakeGame extends Component
   //game ended
   endGame = () =>
   {
+    this.props.postScore()
     console.log(this.state.moves)
     this.setState({alive: false})
     deathSound.play()
