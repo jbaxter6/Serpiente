@@ -17,7 +17,7 @@ class SnakeGameContainer extends Component
  setScore = (segments) =>
   {
     const score = segments * (segments/6)
-    this.setState({score},() => console.log(this.state.score))
+    this.setState({score},() => console.log(segments,this.state.score))
   }
   pause = () =>
   {
