@@ -100,14 +100,15 @@ div#snake-game-box
 }
 .game.panel
 {
-  height: 80px;
-  width: 800px;
+  height: 70px;
+  width: 100%;
   border-style: solid;
   border-color: rgb(66, 66, 66);
   background-color: rgb(11, 0, 26);
-  border-width: 10px;
+  border-width: 5px;
   font-family: 'drip';
   color: rgb(115, 255, 0);
+  margin-left: 0px;
 }
 
 #pause-menu{
@@ -121,7 +122,26 @@ div#snake-game-box
   font-size: 20px;
   text-align: center;
   vertical-align: middle;
-  line-height: 60px; 
+  line-height: 30px;
+  margin-left: 0px;
+
+}
+div.column.menu{
+  height: 60px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgb(115, 255, 0);
+}
+#menu-col-high
+{
+  font-size: 17px;
+  text-align: left;
+}
+#menu-col-score
+{
+
 }
 div.App{  
  
@@ -136,4 +156,9 @@ div.App{
 
 .backdrop{
   background-image: url('');
+}
+
+#menu-col-best
+{
+
 }

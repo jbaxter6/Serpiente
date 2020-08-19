@@ -30,7 +30,6 @@ export default class Login extends Component {
         })
         .then(resp => resp.json())
         .then(user => {
-            console.log(user)
             localStorage.token = user.token
         })
         this.props.toggle()
