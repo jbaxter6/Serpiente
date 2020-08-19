@@ -8,26 +8,40 @@ import Signup from './components/Signup'
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
 
 
-const App = () => {  
-  return (
+export default class App extends React.Component {
+  
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+       logged: false
+    }
+  }
+
+  toggleLogged = () => {
+    this.setState({
+      logged: !this.state.logged
+    })
+  }
+  
+  render() {
+    return (
       <BrowserRouter>
 
     <div className="App">
-      {/*  */}
-      {/* {<Login />} */}
-      <NavBar /> 
-      <SnakeGameContainer />      
+      <NavBar logged={this.state.logged} toggle={this.toggleLogged} /> 
+      {/* <SnakeGameContainer />      */}
+      <Switch>
+        <Route path='/login' render = {(routeProps) => <Login {...routeProps} toggle={this.toggleLogged} /> } />
+        <Route path='/signup' render = {(routeProps) => <Signup {...routeProps} toggle={this.toggleLogged} /> } />
+        <Route path='/play' component={SnakeGameContainer} />
+      </Switch> 
     </div>
 
       </BrowserRouter>
-  );
+    )
+  }
 }
-        // <Switch>
-        //   <Route path='/login' component={Login} />
-        //   <Route path='/signup' component={Signup} />
-        // </Switch>
-
-export default App;
 
 
 

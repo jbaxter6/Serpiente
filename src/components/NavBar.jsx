@@ -20,6 +20,7 @@ export default class NavBar extends Component {
 
     logout = () => {
         localStorage.clear()
+        this.props.toggle()
     }
     
     render() {
@@ -28,22 +29,29 @@ export default class NavBar extends Component {
             <Menu inverted>
                 <Menu.Item header> SERPIENTE </Menu.Item>
                 <Menu.Item
+                    as={Link}
+                    to='/play'
+                    name='PLAY NOW'
+                    active={activeItem === 'play'}
+                    onClick={this.handleItemClick}
+                />
+                <Menu.Item
                     name='LEADERBOARD'
                     active={activeItem === 'leaderboard'}
                     onClick={this.handleItemClick}
                 />
-                <Menu.Item
-                    name='PERSONAL RECORDS'
-                    active={activeItem === 'personal'}
-                    onClick={this.handleItemClick}
-                />
-                <Menu.Item
+                { !this.props.logged ?
+                    <Menu.Item
                     as={Link}
                     to="/login"
                     name='LOGIN'
                     active={activeItem === 'login'}
                     onClick={this.handleItemClick}
                 />
+                : 
+                null
+                }
+                { !this.props.logged ?
                 <Menu.Item
                     as={Link}
                     to="/signup"
@@ -51,12 +59,28 @@ export default class NavBar extends Component {
                     active={activeItem === 'signup'}
                     onClick={this.handleItemClick}
                 />
+                :
+                null
+                }
+                { this.props.logged ?
+                <Menu.Item
+                    name='PERSONAL RECORDS'
+                    active={activeItem === 'personal'}
+                    onClick={this.handleItemClick}
+                />
+                : 
+                null
+                }
+                { this.props.logged ?
                 <Menu.Item
                     className="logout-bttn"
                     name='LOGOUT'
                     active={activeItem === 'logout'}
                     onClick={this.logout}
                 />
+                :
+                null
+                }
             </Menu>
         )
     }

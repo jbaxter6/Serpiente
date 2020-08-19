@@ -33,6 +33,7 @@ export default class Login extends Component {
             console.log(user)
             localStorage.token = user.token
         })
+        this.props.toggle()
     }
 
     render() {
