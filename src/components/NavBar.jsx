@@ -36,6 +36,8 @@ export default class NavBar extends Component {
                     onClick={this.handleItemClick}
                 />
                 <Menu.Item
+                    as={Link}
+                    to='/leaderboard'
                     name='LEADERBOARD'
                     active={activeItem === 'leaderboard'}
                     onClick={this.handleItemClick}

@@ -126,3 +126,14 @@ div#snake-game-box
 div.App{  
  
 }
+
+
+#home-screen{
+  height: 90vh;
+  width: 100vw;
+  background-image: url('https://i.ibb.co/QbHWG8K/home.png')
+}
+
+.backdrop{
+  background-image: url('');
+}

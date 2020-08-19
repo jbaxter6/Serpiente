@@ -38,6 +38,7 @@ export default class Login extends Component {
 
     render() {
         return (
+            <div class="backdrop" >
             <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
                 <Grid.Column style={{ maxWidth: 450 }}>
                     <Header as='h2' color='black' textAlign='center'>
@@ -72,6 +73,7 @@ export default class Login extends Component {
                 </Message>
                 </Grid.Column>
             </Grid>   
+            </div>
         )
     }
 }

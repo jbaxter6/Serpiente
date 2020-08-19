@@ -38,9 +38,10 @@ export default class Login extends Component {
 
     render() {
         return (
+            <div class="backdrop">
             <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
                 <Grid.Column style={{ maxWidth: 450 }}>
-                    <Header as='h2' color='black' textAlign='center'>
+                    <Header as='h2' color='white' textAlign='center'>
                     <Image src={logo} /> Create an Account
                     </Header>
                 <Form size='large' onSubmit={(e) => this.handleSignUp(e)}>
@@ -71,7 +72,8 @@ export default class Login extends Component {
                     Already have an Account?  <Link to="/login">Sign-In</Link>
                 </Message>
                 </Grid.Column>
-            </Grid>   
+            </Grid>  
+            </div> 
         )
     }
 }
