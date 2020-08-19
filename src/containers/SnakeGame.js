@@ -16,6 +16,8 @@ import movesAtRow from '../constants/movesAtRow';
 import vecDiff2d from '../constants/vecDiff2d';
 import addVectors from '../constants/addVectors'
 
+import terrain from '../constants/terrain'
+
 let intervalID;
 const TABLE_SIZE = 20;
 const SPEED = 140;
@@ -32,7 +34,7 @@ class SnakeGame extends Component
   componentDidMount()
   {
     intervalID = setInterval(() => this.nextMove(), SPEED)
-    document.addEventListener("keydown",e => this.handleKeyDown(e.keyCode))
+    document.addEventListener("keydown",e => this.handleKeyDown(e))
     startSound.play();
   }
   
@@ -53,11 +55,12 @@ class SnakeGame extends Component
     this.setState({moves: moves.slice(1)})
   }
   
-  handleKeyDown = (keyCode) =>
+  handleKeyDown = (e) =>
   {  
-    if(keys[`${keyCode}`])
+    if(keys[`${e.keyCode}`])
     {
-      const key = keys[`${keyCode}`]
+      e.preventDefault()
+      const key = keys[`${e.keyCode}`]
       if(key === 'esc')
       {
         const {paused} = this.state
@@ -148,7 +151,8 @@ class SnakeGame extends Component
       
       moves.forEach(move => {
         (move[0] === apple[0] && move[1] === apple[1]) && (taken = true)
-      })      
+      })
+      terrain.forEach((coord) => (compareCoords(coord,apple)) && (taken = true))      
     }
     this.setState({apple})
   }

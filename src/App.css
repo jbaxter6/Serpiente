@@ -87,8 +87,10 @@ div.placeholder
 #game-container
 {
   
-  height: 1000px;
+  height: 920px;
   width: 800px;
+  
+  
 }
 div#snake-game-box
 {
@@ -100,12 +102,9 @@ div#snake-game-box
 }
 .game.panel
 {
-  height: 70px;
+  height: 60px;
   width: 100%;
-  border-style: solid;
-  border-color: rgb(66, 66, 66);
   background-color: rgb(11, 0, 26);
-  border-width: 5px;
   font-family: 'drip';
   color: rgb(115, 255, 0);
   margin-left: 0px;
@@ -115,7 +114,10 @@ div#snake-game-box
   font-size: 40px;
   text-align: center;
   vertical-align: middle;
-  line-height: 80px; 
+  line-height: 80px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgb(115, 255, 0); 
 }
 
 #game-menu{
@@ -127,12 +129,17 @@ div#snake-game-box
 
 }
 div.column.menu{
-  height: 60px;
-  padding-top: 0px;
+  height: 100%;
   padding-bottom: 0px;
   border-style: solid;
   border-width: 1px;
   border-color: rgb(115, 255, 0);
+}
+div#game-menu
+{
+  padding-top: 0px;
+  margin-top: 0px;
+  
 }
 #menu-col-high
 {
@@ -148,17 +155,44 @@ div.App{
 }
 
 
-#home-screen{
-  height: 90vh;
-  width: 100vw;
-  background-image: url('https://i.ibb.co/QbHWG8K/home.png')
-}
 
 .backdrop{
   background-image: url('');
 }
 
-#menu-col-best
-{
 
+
+div#home-body
+{
+  width: 100%;
+  height: 100vh;
+  padding-top: 0%;
+  padding-left: 0%;
+  background-color: rgb(85, 0, 146);
+  display: flex;
+  align-content: center;
+}
+#home-screen{
+  padding-top: 30%;
+} 
+  
+img#home-img
+{  
+    max-width: 70%;
+    height: auto;
+    border-width: 8px;
+    border-color: greenyellow;
+    border-style: solid;
+    box-shadow: 15px 15px 5px  black;   
+}
+
+.ui.inverted.menu
+{
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+
+div#game-border
+{
+  
 }

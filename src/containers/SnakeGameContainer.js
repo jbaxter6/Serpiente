@@ -68,12 +68,14 @@ setHighScore()
   render(){
     const highScore = this.state.userHighScore
     return(
+    <div id="game-border">
       <div id="game-container" className="ui container game">
         <PausePanel paused={this.state.paused}/>
         <SnakeGame setScore={this.setScore} pause={this.pause} postScore={this.postScore}/>
         <MenuPanel score={this.state.score} 
         highScore={highScore}/>
       </div>
+    </div>
     )
   }
 }
