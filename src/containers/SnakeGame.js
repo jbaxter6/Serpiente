@@ -97,7 +97,6 @@ class SnakeGame extends Component
     }
     //is snake out of bounds? bad snake
     const [x,y] = newMove
-    console.log(x," ",y)
     if(x < 0 || y < 0 || x >= TABLE_SIZE || y >= TABLE_SIZE || dead)
       return this.endGame()
 
@@ -111,7 +110,7 @@ class SnakeGame extends Component
   {
     const moves = newMoves.map(move => [move[0],move[1]])
     this.newApple()
-    this.setState({moves})
+    this.setState({moves},() => {this.props.setScore(this.state.moves.length)})
     if(Math.floor(Math.random()*3)+1 === 1)
       growSound.play()
     eatSound.play()

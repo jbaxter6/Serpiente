@@ -10,10 +10,10 @@ class SnakeGameContainer extends Component
     paused: false,
   }
 
- setScore = (segments,time) =>
+ setScore = (segments) =>
   {
-    const score = segments * (segments/3) - (time/20)
-    this.setState({score})
+    const score = segments * (segments/6)
+    this.setState({score},() => console.log(this.state.score))
   }
   pause = () =>
   {
@@ -26,7 +26,7 @@ class SnakeGameContainer extends Component
       <div id="game-container" className="ui container game">
         <PausePanel paused={this.state.paused}/>
         <SnakeGame setScore={this.setScore} pause={this.pause}/>
-        <MenuPanel />
+        <MenuPanel score={this.state.score}/>
       </div>
     )
   }
