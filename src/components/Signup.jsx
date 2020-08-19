@@ -16,6 +16,7 @@ export default class Login extends Component {
     handleSignUp = (e) => {
         e.preventDefault()
         // post fetch to users request
+        
         fetch('http://localhost:3000/api/v1/users', {
             method: "POST",
             headers: {
@@ -27,11 +28,12 @@ export default class Login extends Component {
                 password: this.state.password
             })
         })
-            .then(resp => resp.json())
-            .then(user => {
-                localStorage.token = user.token
-            })
-
+        .then(resp => resp.json())
+        .then(user => {
+            localStorage.token = user.token
+        })
+        
+        this.props.toggle()
     }
 
     render() {
