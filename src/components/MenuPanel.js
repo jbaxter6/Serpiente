@@ -11,7 +11,7 @@ const MenuPanel = (props) =>
     <div id="game-menu" className="game panel ui grid">
       <div id={"menu-col-high"} className={"four wide column menu" }>{`Best: ${highScore}`}</div>
       <div id={"menu-col-score"} className={"eight wide column menu"}>{`Score: ${score}`}</div>
-      <div id={"menu-col-best"}className={"four wide column menu" }>sdsds</div>
+      <div id={"menu-col-best"} className={"four wide column menu" }>sdsds</div>
     </div>
   )
 }
