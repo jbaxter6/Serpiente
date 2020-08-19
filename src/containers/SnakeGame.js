@@ -40,7 +40,6 @@ class SnakeGame extends Component
   endGame = () =>
   {
     this.props.postScore()
-    console.log(this.state.moves)
     this.setState({alive: false})
     deathSound.play()
     clearInterval(intervalID)
@@ -75,7 +74,7 @@ class SnakeGame extends Component
         
         const vector = vectorMap(key)
         if(!compareCoords(vector,negateVec(this.state.vector)) || !this.state.moves[1])
-        this.setState({vector})
+          this.setState({vector})
       }
     }
     
@@ -83,18 +82,18 @@ class SnakeGame extends Component
   
   //front of array = head of snake
   nextMove = () => {
-    const {moves,vector,apple} = this.state
-    const newMoves = (moves.map(move => [move[0],move[1]]))
+    let {moves,vector,apple} = this.state
+    let newMoves = (moves.map(move => [move[0],move[1]]))
     
     
     //add vector to first move to get new move
-    const newMove = addVectors(moves[0],vector)
+    let newMove = addVectors(moves[0],vector)
     //is user trying to double back snake?
-    if( vecDiff2d(moves[0],newMove) === 0 )
+    if(moves[1] && compareCoords(moves[1],newMove))
     {
       vector = negateVec(vector)
       newMove = addVectors(moves[0],vector)
-      console.log("doubled backed")
+      console.log("Snake was doubling-back, and its direction was corrected")
     }
     
     
@@ -105,7 +104,10 @@ class SnakeGame extends Component
     for(let i = 1; i < newMoves.length ; i++)
     { 
       if (compareCoords(newMoves[0],newMoves[i]))
-      dead = true;
+      {
+        console.log(`2 segments collided at ${newMoves[0]}` )
+        dead = true;
+      }
     }
     //is snake out of bounds? bad snake
     const [x,y] = newMove
