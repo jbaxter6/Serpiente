@@ -8,6 +8,7 @@ import Signup from './components/Signup'
 import Home from './components/Home'
 import Leader from './components/Leader'
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
+import {APIBASE} from './constants/apiBase'
 
 
 export default class App extends React.Component {
@@ -16,7 +17,8 @@ export default class App extends React.Component {
     super(props)
   
     this.state = {
-       logged: false
+       logged: false,
+       records: []
     }
   }
 
@@ -24,6 +26,12 @@ export default class App extends React.Component {
     this.setState({
       logged: !this.state.logged
     })
+  }
+
+  componentDidMount(){
+    fetch(APIBASE + '/records')
+    .then(resp => resp.json())
+    .then(users => console.log(users))
   }
   
   render() {
