@@ -66,7 +66,10 @@ class SnakeGame extends Component
         const {paused} = this.state
         
         if(paused)
-        intervalID = setInterval(() => this.nextMove(), SPEED)
+          {
+            if(this.state.alive)
+              intervalID = setInterval(() => this.nextMove(), SPEED)
+          }
         else
         clearInterval(intervalID)
         this.setState({paused: !paused},() => this.props.pause())

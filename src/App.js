@@ -43,8 +43,8 @@ export default class App extends React.Component {
       <Switch>
         <Route path='/login' render = {(routeProps) => <Login {...routeProps} toggle={this.toggleLogged} /> } />
         <Route path='/signup' render = {(routeProps) => <Signup {...routeProps} toggle={this.toggleLogged} /> } />
-        <Route path='/play' component={SnakeGameContainer} />
-        <Route path='/leaderboard' render={(routeProps) => <Leader {...routeProps} records={this.state.records} />} />
+        <Route path='/play'         render={(routeProps) => <SnakeGameContainer {...routeProps} loggedIn={this.state.logged} />} />
+        <Route path='/leaderboard'  render={(routeProps) => <Leader {...routeProps} records={this.state.records} />} />
         <Route path='/' component={Home}/>
       </Switch> 
       </div>
