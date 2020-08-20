@@ -27,13 +27,13 @@ class SnakeGame extends Component
     moves: [[10,0]],
     vector: [1,0],
     apple: [10,9],
-    paused: true,
+    paused: false,
     alive: true
   }
   
   componentDidMount()
   {
-    //intervalID = setInterval(() => this.nextMove(), SPEED)
+    intervalID = setInterval(() => this.nextMove(), SPEED)
     document.addEventListener("keydown",e => this.handleKeyDown(e))
     startSound.play();
   }
@@ -69,7 +69,7 @@ class SnakeGame extends Component
         intervalID = setInterval(() => this.nextMove(), SPEED)
         else
         clearInterval(intervalID)
-        this.setState({paused: !paused})
+        this.setState({paused: !paused},() => this.props.pause())
       }
       else
       {
@@ -175,11 +175,12 @@ class SnakeGame extends Component
   
   render()
   {
-    const {moves} = this.state
+    const {moves,paused} = this.state
     const [appleX,appleY] = this.state.apple
     return(
-      <div id="snake-game-box">
-        <table className="snake game" border="0" cellspacing="0" cellpadding="0">
+      <div id="snake-game-box" style={{filter: paused ? `brightness(30%)` :`brightness(100%)` }}>
+        <table  className="snake game" border="0" cellspacing="0" cellpadding="0"
+                >
           {this.generateRows(TABLE_SIZE)}
         </table>
       </div>

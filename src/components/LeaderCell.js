@@ -1,12 +1,17 @@
 import React, { Component } from 'react'
+import Leader from './Leader'
 
-export default class LeaderCell extends Component {
-    render() {
-        return (
-            <tr>
-                <td>{this.props.record.score}</td>
-                <td>{this.props.record.time}</td>
-            </tr>
-        )
-    }
-}
+const LeaderCell = (props) =>
+{
+  const {score,user,date} = props.record
+  return (
+  <tr>
+    <td data-label="Score">{score}</td>
+    <td data-label="User">{user}</td>
+    <td data-label="Date">{date}</td>
+  </tr>  
+  )
+
+}    
+
+export default LeaderCell;

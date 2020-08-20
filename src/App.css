@@ -192,7 +192,32 @@ img#home-img
   margin-bottom: 0px;
 }
 
-div#game-border
+div#segment-count
 {
-  
+  font-size: 15px;
+  float: left;
+  width: 75%;
+  height: auto;
+}
+
+div#eyeball-icon
+{
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    margin-top: 0px;
+    vertical-align: middle;  
+    
+}
+
+div#home-text
+{
+  vertical-align: middle;  
+  font-size: 17px;
+  color: white;
+}
+
+img#eyeball-img{
+  display: block;
+  top: 1px;
 }

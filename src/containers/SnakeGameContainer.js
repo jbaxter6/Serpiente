@@ -13,7 +13,8 @@ class SnakeGameContainer extends Component
   state = {
     score: 0,
     paused: false,
-    userHighScore: 0
+    userHighScore: 0,
+    segments: 1
   }
 
 componentDidMount()
@@ -31,7 +32,7 @@ setHighScore()
  setScore = (segments) =>
   {
     const score = Math.round(segments * (segments/6))
-    this.setState({score})
+    this.setState({score,segments})
   }
   pause = () =>
   {
@@ -75,8 +76,9 @@ setHighScore()
     <div id="game-border">
       <div id="game-container" className="ui container game">
         <PausePanel paused={this.state.paused}/>
-        <SnakeGame setScore={this.setScore} pause={this.pause} postScore={this.postScore}/>
-        <MenuPanel score={this.state.score} 
+        <SnakeGame  setScore={this.setScore} pause={this.pause} 
+                    isPaused={this.state.paused} postScore={this.postScore}/>
+        <MenuPanel score={this.state.score} segments={this.state.segments}
         highScore={highScore}/>
       </div>
     </div>

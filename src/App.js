@@ -31,10 +31,7 @@ export default class App extends React.Component {
   componentDidMount(){
     fetch(APIBASE + '/records')
     .then(resp => resp.json())
-    .then(users => 
-      this.setState({
-        records: users
-      }))
+    .then(records => this.setState({records}))
   }
   
   render() {

@@ -1,25 +1,33 @@
 import React, { Component } from 'react'
 import LeaderCell from './LeaderCell'
 
-export default class Leader extends React.Component {
-    
-    genRecordRows = () => {
-        this.props.records.map( record => <LeaderCell record={record} />)
-    }
+const Leader = (props) =>
+{  
 
-    render() {
-        return (
-            <div class='backdrop'>
-                <table class="ui celled table">
-                    <thead>
-                    <tr><th>Score</th>
-                    <th>Time</th>
-                    </tr></thead>
-                        <tbody>
-                            { this.genRecordRows() }
-                        </tbody>
-                        </table>
-            </div>
-        )
-    }
+  return (
+    <div className='backdrop'>
+    {() => this.test()}
+      <table class="ui celled table">
+        <thead>
+          <tr>
+            <th>Score</th>
+            <th>Name</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          {genRecordRows(props)}          
+        </tbody>
+      </table>
+    </div>
+  )  
 }
+
+const genRecordRows = ({records}) => {
+  console.log("in genrows")
+  const rows = records.map(record => <LeaderCell record={record} />)
+  console.log(rows)
+  return rows
+}
+
+export default Leader;
