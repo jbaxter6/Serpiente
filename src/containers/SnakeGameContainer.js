@@ -14,13 +14,14 @@ class SnakeGameContainer extends Component
     score: 0,
     paused: false,
     userHighScore: 0,
-    segments: 1
+    segments: 1,
   }
 
 componentDidMount()
 {
-  this.setHighScore()
+  this.props.loggedIn && this.setHighScore() 
 }
+
 
 setHighScore()
 {
@@ -71,14 +72,16 @@ setHighScore()
 
   
   render(){
-    const highScore = this.state.userHighScore
+    const highScore = this.props.loggedIn ? this.state.userHighScore : 'Log in to save scores'
+
     return(
     <div id="game-border">
       <div id="game-container" className="ui container game">
         <PausePanel paused={this.state.paused}/>
         <SnakeGame  setScore={this.setScore} pause={this.pause} 
                     isPaused={this.state.paused} postScore={this.postScore}/>
-        <MenuPanel score={this.state.score} segments={this.state.segments}
+        <MenuPanel score={this.state.score} 
+        segments={this.state.segments}
         highScore={highScore}/>
       </div>
     </div>
