@@ -7,11 +7,11 @@ const Leader = (props) =>
   return (
     <div className='backdrop'>
     {() => this.test()}
-      <table class="ui celled table">
+      <table class="ui inverted selectable celled table">
         <thead>
           <tr>
             <th>Score</th>
-            <th>Name</th>
+            <th>Username</th>
             <th>Date</th>
           </tr>
         </thead>
