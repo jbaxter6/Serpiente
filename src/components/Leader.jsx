@@ -6,7 +6,6 @@ const Leader = (props) =>
 
   return (
     <div className='backdrop'>
-    {() => this.test()}
       <table class="ui celled table">
         <thead>
           <tr>
@@ -24,9 +23,7 @@ const Leader = (props) =>
 }
 
 const genRecordRows = ({records}) => {
-  console.log("in genrows")
   const rows = records.map(record => <LeaderCell record={record} />)
-  console.log(rows)
   return rows
 }
 
