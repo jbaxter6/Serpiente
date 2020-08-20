@@ -27,13 +27,13 @@ class SnakeGame extends Component
     moves: [[10,0]],
     vector: [1,0],
     apple: [10,9],
-    paused: false,
+    paused: true,
     alive: true
   }
   
   componentDidMount()
   {
-    intervalID = setInterval(() => this.nextMove(), SPEED)
+    //intervalID = setInterval(() => this.nextMove(), SPEED)
     document.addEventListener("keydown",e => this.handleKeyDown(e))
     startSound.play();
   }

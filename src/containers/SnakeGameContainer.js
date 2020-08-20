@@ -23,7 +23,7 @@ componentDidMount()
 
 setHighScore()
 {
-  fetch(USERFIND,this.configObj("Get",true))
+  fetch("http://localhost:3000/api/v1/find_user",this.configObj("Get",true))
   .then(r => r.json())
   .then(json => this.setState({userHighScore: json.high_score}))  
 }
@@ -42,9 +42,13 @@ setHighScore()
   {
     const data = {score: this.state.score}
     const cfg = this.configObj("POST",true,data)
-    fetch(APIBASE + 'records/',cfg)
+    fetch('http://localhost:3000/api/v1/records/',cfg)
     .then(r => r.json())
-    .then(() => this.setHighScore())
+    .then((json) => 
+    {
+      this.setHighScore()
+      console.log(json)
+    })
     
   }
 
