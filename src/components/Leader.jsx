@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import LeaderCell from './LeaderCell'
 
 export default class Leader extends React.Component {
     render() {
@@ -13,7 +14,6 @@ export default class Leader extends React.Component {
                             <tr>
                             <td data-label="Name">James</td>
                             <td data-label="Age">24</td>
-                            <td data-label="Job">Engineer</td>
                             </tr>
                         </tbody>
                         </table>
