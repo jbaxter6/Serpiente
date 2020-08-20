@@ -31,7 +31,6 @@ export default class App extends React.Component {
       <BrowserRouter>
 
     <div className="App">
-      
       <NavBar logged={this.state.logged} toggle={this.toggleLogged} /> 
       <Switch>
         <Route path='/login' render = {(routeProps) => <Login {...routeProps} toggle={this.toggleLogged} /> } />
