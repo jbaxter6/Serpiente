@@ -3,9 +3,10 @@ import React, { Component } from 'react'
 export default class LeaderCell extends Component {
     render() {
         return (
-            <div>
-                
-            </div>
+            <tr>
+                <td>{this.props.record.score}</td>
+                <td>{this.props.record.time}</td>
+            </tr>
         )
     }
 }

@@ -31,7 +31,10 @@ export default class App extends React.Component {
   componentDidMount(){
     fetch(APIBASE + '/records')
     .then(resp => resp.json())
-    .then(users => console.log(users))
+    .then(users => 
+      this.setState({
+        records: users
+      }))
   }
   
   render() {
@@ -44,7 +47,7 @@ export default class App extends React.Component {
         <Route path='/login' render = {(routeProps) => <Login {...routeProps} toggle={this.toggleLogged} /> } />
         <Route path='/signup' render = {(routeProps) => <Signup {...routeProps} toggle={this.toggleLogged} /> } />
         <Route path='/play' component={SnakeGameContainer} />
-        <Route path='/leaderboard' component={Leader}/>
+        <Route path='/leaderboard' render={(routeProps) => <Leader {...routeProps} records={this.state.records} />} />
         <Route path='/' component={Home}/>
       </Switch> 
       </div>
