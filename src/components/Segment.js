@@ -1,4 +1,8 @@
 import React from 'react'
+//-------------------------------------------------------=
+//Purpose: Display a snake part pic and rotate it
+//        
+//-------------------------------------------------------=
 
 const Segment = ({move}) =>
 {

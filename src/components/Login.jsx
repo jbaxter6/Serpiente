@@ -3,6 +3,9 @@ import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui
 import logo from '../images/snake_head.png'
 import hitSound from '../sounds/hitSound'
 import {Link} from 'react-router-dom'
+//-------------------------------------------------------=
+//Purpose: Login form
+//-------------------------------------------------------=
 
 export default class Login extends Component {
     

@@ -1,5 +1,11 @@
 import React from 'react'
 
+//-------------------------------------------------------=
+//Purpose: display an eyeball
+//       --in snake, this is called the apple usually
+//-------------------------------------------------------=
+
+
 class Apple extends React.Component
 {
   state = {

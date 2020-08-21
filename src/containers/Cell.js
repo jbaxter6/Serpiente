@@ -2,6 +2,11 @@ import React from 'react'
 import Apple from '../components/Apple'
 import Segment from '../components/Segment'
 
+//-------------------------------------------------------=
+//Purpose: display each cell of the snake-game (table)
+//-------------------------------------------------------=
+
+
 const Cell = ({move,apple,position}) =>
 {
   const pos = getPosInt(position.split(' '))

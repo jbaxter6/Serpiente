@@ -2,6 +2,11 @@ import React, { Component } from 'react'
 import { Menu } from 'semantic-ui-react'
 import {Link} from 'react-router-dom'
 
+//-------------------------------------------------------=
+//Purpose: Top of site nav bar
+//-------------------------------------------------------=
+
+
 export default class NavBar extends Component {
     
     constructor(props) {

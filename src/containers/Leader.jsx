@@ -1,16 +1,21 @@
 import React, { Component } from 'react'
-import LeaderCell from './LeaderCell'
+import LeaderCell from '../components/LeaderCell'
+//-------------------------------------------------------=
+//Purpose: leaderboards page from route http:.../leaderboard
+//-------------------------------------------------------=
+
 
 const Leader = (props) =>
 {  
 
   return (
     <div className='backdrop'>
-      <table class="ui celled table">
+    {() => this.test()}
+      <table class="ui inverted selectable celled table">
         <thead>
           <tr>
             <th>Score</th>
-            <th>Name</th>
+            <th>Username</th>
             <th>Date</th>
           </tr>
         </thead>

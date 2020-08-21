@@ -1,6 +1,12 @@
 import React from 'react'
 import Cell from './Cell'
 
+//-------------------------------------------------------=
+//Purpose: SnakeGame is a table, these are its rows
+//         #columns = #rows
+//-------------------------------------------------------=
+
+
 const Row = (props) =>
 {
   return( <tr>{generateCells(props)}</tr>  )//
