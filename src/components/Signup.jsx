@@ -4,6 +4,12 @@ import logo from '../images/snake_head.png'
 import hitSound from '../sounds/hitSound'
 import {Link} from 'react-router-dom'
 
+//-------------------------------------------------------=
+//Purpose: signup form
+//       : hitSound on keypress
+//-------------------------------------------------------=
+
+
 export default class Login extends Component {
     
     handleChange = (e) => {

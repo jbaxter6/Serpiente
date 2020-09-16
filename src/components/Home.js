@@ -1,4 +1,9 @@
-import React, { Component,Fragment } from 'react'
+import React, { Component } from 'react'
+
+//-------------------------------------------------------=
+//Purpose: Show a home page on route http://<base url>/
+//-------------------------------------------------------=
+
 
 export default class Home extends Component {
   render() {

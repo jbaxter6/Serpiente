@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
-import LeaderCell from './LeaderCell'
+import LeaderCell from '../components/LeaderCell'
+//-------------------------------------------------------=
+//Purpose: leaderboards page from route http:.../leaderboard
+//-------------------------------------------------------=
+
 
 const Leader = (props) =>
 {  
@@ -24,9 +28,7 @@ const Leader = (props) =>
 }
 
 const genRecordRows = ({records}) => {
-  console.log("in genrows")
   const rows = records.map(record => <LeaderCell record={record} />)
-  console.log(rows)
   return rows
 }
 

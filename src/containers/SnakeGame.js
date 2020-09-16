@@ -18,6 +18,13 @@ import addVectors from '../constants/addVectors'
 
 import terrain from '../constants/terrain'
 
+//-------------------------------------------------------=
+//Purpose: This is the game, contains most of the logic itself
+//         -game area is a square table of equally sized cells
+// 
+//-------------------------------------------------------=
+
+
 let intervalID;
 const TABLE_SIZE = 20;
 const SPEED = 140;
@@ -35,7 +42,7 @@ class SnakeGame extends Component
   {
     intervalID = setInterval(() => this.nextMove(), SPEED)
     document.addEventListener("keydown",e => this.handleKeyDown(e))
-    startSound.play();
+    startSound.setVolume(0.4).play();
   }
   
   //game ended
@@ -43,7 +50,7 @@ class SnakeGame extends Component
   {
     this.props.postScore()
     this.setState({alive: false})
-    deathSound.play()
+    deathSound.setVolume(0.4).play()
     clearInterval(intervalID)
     intervalID = setInterval(() => this.killSnake(),SPEED)
   }
@@ -65,18 +72,21 @@ class SnakeGame extends Component
       {
         const {paused} = this.state
         
-        if(paused)
-          {
-            if(this.state.alive)
-              intervalID = setInterval(() => this.nextMove(), SPEED)
-          }
-        else
-        clearInterval(intervalID)
-        this.setState({paused: !paused},() => this.props.pause())
+        if(this.state.alive)
+        {
+          if(paused)
+            intervalID = setInterval(() => this.nextMove(), SPEED)
+          else
+            clearInterval(intervalID)
+
+            
+            this.setState({paused: !paused},() => this.props.pause())
+        }
+        
       }
       else
       {
-        hitSound.play()
+        hitSound.setVolume(0.4).play()
         
         const vector = vectorMap(key)
         if(!compareCoords(vector,negateVec(this.state.vector)) || !this.state.moves[1])
@@ -132,8 +142,8 @@ class SnakeGame extends Component
     this.newApple()
     this.setState({moves,vector},() => {this.props.setScore(this.state.moves.length)})
     if(Math.floor(Math.random()*3)+1 === 1)
-    growSound.play()
-    eatSound.play()
+    growSound.setVolume(0.4).play()
+    eatSound.setVolume(0.4).play()
   }
   noApple = (newMoves,vector) =>
   {

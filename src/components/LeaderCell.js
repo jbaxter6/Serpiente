@@ -1,6 +1,12 @@
 import React, { Component } from 'react'
 import Leader from './Leader'
 
+//-------------------------------------------------------=
+//Purpose: technically leader ROW
+//         --each of these is a row in leaderboards page table
+//-------------------------------------------------------=
+
+
 const LeaderCell = (props) =>
 {
   const {score,user,date} = props.record
