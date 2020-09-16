@@ -48,7 +48,7 @@ export default class NavBar extends Component {
                     onClick={this.handleItemClick}
                 />
                 { !this.props.logged ?
-                    <Menu.Item
+                <Menu.Item
                     as={Link}
                     to="/login"
                     name='LOGIN'
