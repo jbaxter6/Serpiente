@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Leader from './Leader'
+import Leader from '../containers/Leader'
 
 //-------------------------------------------------------=
 //Purpose: technically leader ROW
