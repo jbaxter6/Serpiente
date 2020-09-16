@@ -7,8 +7,9 @@ import Login from './components/Login'
 import Signup from './components/Signup'
 import Home from './components/Home'
 import Leader from './components/Leader'
-import {BrowserRouter, Route, Switch} from 'react-router-dom'
+import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom'
 import {APIBASE} from './constants/apiBase'
+
 
 
 export default class App extends React.Component {
@@ -41,11 +42,17 @@ export default class App extends React.Component {
     <div className="App">
       <NavBar logged={this.state.logged} toggle={this.toggleLogged} /> 
       <Switch>
-        <Route path='/login' render = {(routeProps) => <Login {...routeProps} toggle={this.toggleLogged} /> } />
-        <Route path='/signup' render = {(routeProps) => <Signup {...routeProps} toggle={this.toggleLogged} /> } />
-        <Route path='/play'         render={(routeProps) => <SnakeGameContainer {...routeProps} loggedIn={this.state.logged} />} />
+
+        <Route path='/login' render = {(routeProps) => this.state.logged ? <Redirect to="/play" /> : 
+            <Login {...routeProps} toggle={this.toggleLogged} /> } />
+
+        <Route path='/signup' render = {(routeProps) => this.state.logged ? <Redirect to="/play" /> : 
+            <Signup {...routeProps} toggle={this.toggleLogged} /> } />
+
+        <Route path='/play' render={(routeProps) => <SnakeGameContainer {...routeProps} loggedIn={this.state.logged} />} />
         <Route path='/leaderboard'  render={(routeProps) => <Leader {...routeProps} records={this.state.records} />} />
         <Route path='/' component={Home}/>
+        
       </Switch> 
       </div>
 
