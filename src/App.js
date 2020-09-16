@@ -43,16 +43,16 @@ export default class App extends React.Component {
       <NavBar logged={this.state.logged} toggle={this.toggleLogged} /> 
       <Switch>
 
-        <Route path='/login' render = {(routeProps) => this.state.logged ? <Redirect to="/play" /> : 
+        <Route path='/login' render = {(routeProps) => this.state.logged ? <Redirect to="/" /> : 
             <Login {...routeProps} toggle={this.toggleLogged} /> } />
 
-        <Route path='/signup' render = {(routeProps) => this.state.logged ? <Redirect to="/play" /> : 
+        <Route path='/signup' render = {(routeProps) => this.state.logged ? <Redirect to="/" /> : 
             <Signup {...routeProps} toggle={this.toggleLogged} /> } />
 
         <Route path='/play' render={(routeProps) => <SnakeGameContainer {...routeProps} loggedIn={this.state.logged} />} />
         <Route path='/leaderboard'  render={(routeProps) => <Leader {...routeProps} records={this.state.records} />} />
         <Route path='/' component={Home}/>
-        
+
       </Switch> 
       </div>
 
