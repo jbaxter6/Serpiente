@@ -6,13 +6,8 @@ import NavBar from './components/NavBar'
 import Login from './components/Login'
 import Signup from './components/Signup'
 import Home from './components/Home'
-<<<<<<< HEAD
 import Leader from './containers/Leader'
-import {BrowserRouter, Route, Switch} from 'react-router-dom'
-=======
-import Leader from './components/Leader'
 import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom'
->>>>>>> 3be7b5c9ae945b7e37fa0f2fb2a25d6345b7c923
 import {APIBASE} from './constants/apiBase'
 
 
