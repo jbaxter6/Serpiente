@@ -10,7 +10,7 @@
 
 ### 🏠 [Homepage](https://github.com/jbaxter6/Serpiente)
 
-### ✨ DEMO
+### DEMO
 ![Serpiente Demo](Serpiente.gif)
 
 
