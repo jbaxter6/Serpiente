@@ -10,9 +10,9 @@
 
 ### 🏠 [Homepage](https://github.com/jbaxter6/Serpiente)
 
-### ✨ # DEMO![Serpiente Demo](Serpiente.gif)
-step 1: chrome extension screencastify activate and run video and speed video up
-saves to google drive and then export as animated gif. download gif then add file on github
+### ✨ # DEMO!
+[Serpiente Demo](Serpiente.gif)
+
 
 
 ## Install
