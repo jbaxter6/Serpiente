@@ -1,4 +1,4 @@
-<h1 align="center">Welcome to Serpiente 👋</h1>
+<h1 align="center">Welcome to Serpiente </h1>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-0.1.0-blue.svg?cacheSeconds=2592000" />
   <a href="https://choosealicense.com/licenses/mit/" target="_blank">
@@ -10,7 +10,10 @@
 
 ### 🏠 [Homepage](https://github.com/jbaxter6/Serpiente)
 
-### ✨ [Demo](https://github.com/jbaxter6/Serpiente)
+### ✨ [Demo](https://github.com/jbaxter6/Serpiente) # DEMO![Health Check Demo](healthCheck_demo.gif)
+step 1: chrome extension screencastify activate and run video and speed video up
+saves to google drive and then export as animated gif. download gif then add file on github
+
 
 ## Install
 
@@ -30,9 +33,9 @@ npm run start
 npm run test
 ```
 
-## Author
+## Authors
 
-👤 **Johnnathan Baxter**
+👤 **Johnnathan Baxter and Steve Pesce **
 
 * Website: https://medium.com/@jbaxter6
 * Github: [@jbaxter6](https://github.com/jbaxter6)
@@ -46,6 +49,3 @@ Give a ⭐️ if this project helped you!
 
 Copyright © 2020 [Johnnathan Baxter](https://github.com/jbaxter6).<br />
 This project is [MIT](https://choosealicense.com/licenses/mit/) licensed.
-
-***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
