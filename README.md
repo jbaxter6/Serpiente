@@ -41,11 +41,16 @@ npm run test
 
 ## Authors
 
-👤 **Johnnathan Baxter and Steve Pesce **
+👤 **Johnnathan Baxter**
 
-* Website: https://medium.com/@jbaxter6
-* Github: [@jbaxter6](https://github.com/jbaxter6)
-* LinkedIn: [@https:\/\/www.linkedin.com\/in\/johnnathan-baxter-6b7a61158\/](https://linkedin.com/in/https:\/\/www.linkedin.com\/in\/johnnathan-baxter-6b7a61158\/)
+* [Website](https://medium.com/@jbaxter6)
+* [GitHub](https://github.com/jbaxter6)
+* [LinkedIn](https://linkedin.com/in/https:\/\/www.linkedin.com\/in\/johnnathan-baxter-6b7a61158\/)
+
+👤 **Steve Pesce**
+* [Website](https://medium.com/@stevepesce879)
+* [GitHub](https://gist.github.com/sPesce)
+* [LinkedIn](https://www.linkedin.com/in/steve-pesce/)
 
 ## Show your support
 

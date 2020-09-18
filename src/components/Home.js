@@ -14,7 +14,7 @@ export default class Home extends Component {
             <img id="home-img" src="https://i.ibb.co/QbHWG8K/home.png" alt="serpiente" />
           </div> <br/>
           <div id="home-text">
-              At last, you can now be a worm eating eyeballs like you have always wanted. || Made by Junior Baxter and Steve Pesce
+              At last, you can now be a worm eating eyeballs like you have always wanted. Made by Junior Baxter and Steve Pesce
           </div>
         </div>
       </div>
