@@ -41,16 +41,11 @@ npm run test
 
 ## Authors
 
-👤 **Johnnathan Baxter**
+👤 **Johnnathan Baxter:** [Website](https://medium.com/@jbaxter6) | [GitHub](https://github.com/jbaxter6) |
+ [LinkedIn](https://linkedin.com/in/https:\/\/www.linkedin.com\/in\/johnnathan-baxter-6b7a61158\/)
 
-* [Website](https://medium.com/@jbaxter6)
-* [GitHub](https://github.com/jbaxter6)
-* [LinkedIn](https://linkedin.com/in/https:\/\/www.linkedin.com\/in\/johnnathan-baxter-6b7a61158\/)
-
-👤 **Steve Pesce**
-* [Website](https://medium.com/@stevepesce879)
-* [GitHub](https://gist.github.com/sPesce)
-* [LinkedIn](https://www.linkedin.com/in/steve-pesce/)
+👤 **Steve Pesce:** [Website](https://medium.com/@stevepesce879) |  [GitHub](https://gist.github.com/sPesce) | 
+[LinkedIn](https://www.linkedin.com/in/steve-pesce/)
 
 ## Show your support
 
@@ -58,5 +53,5 @@ Give a ⭐️ if this project helped you!
 
 ## 📝 License
 
-Copyright © 2020 [Johnnathan Baxter](https://github.com/jbaxter6).<br />
+Copyright © 2020 [Johnnathan Baxter](https://github.com/jbaxter6) and [Steve Pesce](https://gist.github.com/sPesce).<br />
 This project is [MIT](https://choosealicense.com/licenses/mit/) licensed.
