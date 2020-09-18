@@ -5,9 +5,9 @@ import MenuPanel from '../components/MenuPanel'
 import {APIBASE,USERFIND} from '../constants/apiBase'
 
 
-//----------------------------------------
+//-----------------------------------------=
 // Purpose: holds game, pause panel, menu panel
-//-----------------------------------------
+//-----------------------------------------=
 class SnakeGameContainer extends Component
 {
   state = {
