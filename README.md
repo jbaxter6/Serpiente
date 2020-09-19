@@ -16,7 +16,7 @@
 back-end [link](https://github.com/jbaxter6/Serpiente-Rails)
 
 
-### DEMO
+### DEMO (2x speed)
 ![Serpiente Demo](development/serpiente-live.gif)
 
 
