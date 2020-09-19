@@ -17,7 +17,7 @@ back-end [link](https://github.com/jbaxter6/Serpiente-Rails)
 
 
 ### DEMO
-![Serpiente Demo](Serpiente.gif)
+![Serpiente Demo](development/serpiente-live.gif)
 
 
 
